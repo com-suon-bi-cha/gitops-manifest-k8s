@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampledata
+  labels:
+    app: sampledata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sampledata
+  template:
+    metadata:
+      labels:
+        app: sampledata
+    spec:
+      serviceAccountName: sampledata
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: sampledata
+          image: bingsu1103/sampledata:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8094
+              protocol: TCP
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "k8s"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 60
+            periodSeconds: 30

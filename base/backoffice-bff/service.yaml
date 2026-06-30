@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backoffice-bff
+  labels:
+    app: backoffice-bff
+spec:
+  selector:
+    app: backoffice-bff
+  ports:
+    - name: http
+      port: 8087
+      targetPort: http
+      protocol: TCP
+  type: ClusterIP
