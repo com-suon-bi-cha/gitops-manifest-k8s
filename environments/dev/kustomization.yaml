@@ -8,40 +8,46 @@ labels:
   pairs:
     environment: dev
 images:
-- name: bingsu1103/backoffice-bff
-  newTag: latest
-- name: bingsu1103/cart
-  newTag: latest
-- name: bingsu1103/customer
-  newTag: latest
-- name: bingsu1103/delivery
-  newTag: latest
-- name: bingsu1103/inventory
-  newTag: latest
-- name: bingsu1103/location
-  newTag: latest
-- name: bingsu1103/media
-  newTag: latest
-- name: bingsu1103/order
-  newTag: latest
-- name: bingsu1103/payment
-  newTag: latest
-- name: bingsu1103/product
-  newTag: latest
-- name: bingsu1103/promotion
-  newTag: latest
-- name: bingsu1103/rating
-  newTag: latest
-- name: bingsu1103/recommendation
-  newTag: latest
-- name: bingsu1103/sampledata
-  newTag: latest
-- name: bingsu1103/search
-  newTag: latest
-- name: bingsu1103/storefront-bff
-  newTag: latest
-- name: bingsu1103/tax
-  newName: bingsu1103/tax
-  newTag: 90b90e58
-- name: bingsu1103/webhook
-  newTag: latest
+  - name: bingsu1103/media
+    newTag: latest
+  - name: bingsu1103/product
+    newTag: latest
+  - name: bingsu1103/order
+    newTag: latest
+  - name: bingsu1103/inventory
+    newTag: latest
+  - name: bingsu1103/payment
+    newTag: latest
+  - name: bingsu1103/promotion
+    newTag: latest
+  - name: bingsu1103/rating
+    newTag: latest
+  - name: bingsu1103/delivery
+    newTag: latest
+  - name: bingsu1103/sampledata
+    newTag: latest
+  - name: bingsu1103/recommendation
+    newTag: latest
+  - name: bingsu1103/customer
+    newTag: latest
+  - name: bingsu1103/location
+    newTag: latest
+  - name: bingsu1103/cart
+    newTag: latest
+  - name: bingsu1103/tax
+    newName: bingsu1103/tax
+    newTag: 90b90e58
+  - name: bingsu1103/search
+    newTag: latest
+  - name: bingsu1103/webhook
+    newTag: latest
+  - name: bingsu1103/backoffice-bff
+    newTag: latest
+  - name: bingsu1103/storefront-bff
+    newTag: latest
+  - name: bingsu1103/payment-paypal
+    newTag: latest
+  - name: bingsu1103/storefront
+    newTag: latest
+  - name: bingsu1103/backoffice
+    newTag: latest

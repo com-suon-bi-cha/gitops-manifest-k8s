@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backoffice-ui
+  labels:
+    app: backoffice-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backoffice-ui
+  template:
+    metadata:
+      labels:
+        app: backoffice-ui
+    spec:
+      serviceAccountName: backoffice-ui
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: backoffice-ui
+          image: bingsu1103/backoffice:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "300m"

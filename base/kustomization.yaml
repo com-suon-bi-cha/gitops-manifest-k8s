@@ -75,4 +75,15 @@ resources:
   - storefront-bff/deployment.yaml
   - storefront-bff/service.yaml
   - storefront-bff/serviceaccount.yaml
-
+  # payment-paypal
+  - payment-paypal/deployment.yaml
+  - payment-paypal/service.yaml
+  - payment-paypal/serviceaccount.yaml
+  # storefront-ui
+  - storefront-ui/deployment.yaml
+  - storefront-ui/service.yaml
+  - storefront-ui/serviceaccount.yaml
+  # backoffice-ui
+  - backoffice-ui/deployment.yaml
+  - backoffice-ui/service.yaml
+  - backoffice-ui/serviceaccount.yaml

@@ -52,4 +52,9 @@ images:
     newTag: v1.0.0
   - name: bingsu1103/storefront-bff
     newTag: v1.0.0
-
+  - name: bingsu1103/payment-paypal
+    newTag: v1.0.0
+  - name: bingsu1103/storefront
+    newTag: v1.0.0
+  - name: bingsu1103/backoffice
+    newTag: v1.0.0

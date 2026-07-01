@@ -49,4 +49,9 @@ images:
     newTag: latest
   - name: bingsu1103/storefront-bff
     newTag: latest
-
+  - name: bingsu1103/payment-paypal
+    newTag: latest
+  - name: bingsu1103/storefront
+    newTag: latest
+  - name: bingsu1103/backoffice
+    newTag: latest
