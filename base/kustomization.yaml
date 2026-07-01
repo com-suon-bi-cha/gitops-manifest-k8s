@@ -1,60 +1,78 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  # identity → keycloak alias (required by all services using http://identity/realms/Yas)
+  - _common/identity-service.yaml
+  # media
   - media/deployment.yaml
   - media/service.yaml
   - media/serviceaccount.yaml
+  # product
   - product/deployment.yaml
   - product/service.yaml
   - product/serviceaccount.yaml
+  # order
   - order/deployment.yaml
   - order/service.yaml
   - order/serviceaccount.yaml
+  # inventory
   - inventory/deployment.yaml
   - inventory/service.yaml
   - inventory/serviceaccount.yaml
+  # payment
   - payment/deployment.yaml
   - payment/service.yaml
   - payment/serviceaccount.yaml
+  # promotion
   - promotion/deployment.yaml
   - promotion/service.yaml
   - promotion/serviceaccount.yaml
+  # rating
   - rating/deployment.yaml
   - rating/service.yaml
   - rating/serviceaccount.yaml
+  # delivery
   - delivery/deployment.yaml
   - delivery/service.yaml
   - delivery/serviceaccount.yaml
+  # sampledata
   - sampledata/deployment.yaml
   - sampledata/service.yaml
   - sampledata/serviceaccount.yaml
+  # recommendation
   - recommendation/deployment.yaml
   - recommendation/service.yaml
   - recommendation/serviceaccount.yaml
+  # customer
   - customer/deployment.yaml
   - customer/service.yaml
   - customer/serviceaccount.yaml
+  # location
   - location/deployment.yaml
   - location/service.yaml
   - location/serviceaccount.yaml
+  # cart
   - cart/deployment.yaml
   - cart/service.yaml
   - cart/serviceaccount.yaml
+  # tax
   - tax/deployment.yaml
   - tax/service.yaml
   - tax/serviceaccount.yaml
+  # search
   - search/deployment.yaml
   - search/service.yaml
   - search/serviceaccount.yaml
+  # webhook
   - webhook/deployment.yaml
   - webhook/service.yaml
   - webhook/serviceaccount.yaml
+  # backoffice-bff
   - backoffice-bff/deployment.yaml
   - backoffice-bff/service.yaml
   - backoffice-bff/serviceaccount.yaml
+  # storefront-bff
   - storefront-bff/deployment.yaml
   - storefront-bff/service.yaml
   - storefront-bff/serviceaccount.yaml
-  - payment-paypal/deployment.yaml
-  - payment-paypal/service.yaml
-  - payment-paypal/serviceaccount.yaml
+

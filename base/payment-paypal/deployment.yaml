@@ -14,20 +14,21 @@ spec:
       labels:
         app: payment-paypal
     spec:
-      serviceAccountName: payment-paypal
+      serviceAccountName: payment-paypal      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
         - name: payment-paypal
           image: bingsu1103/payment-paypal:latest
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8093
-              protocol: TCP
+            - containerPort: 8093
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+              value: "3"
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              value: "health,prometheus"
           resources:
             requests:
               memory: "256Mi"
@@ -37,13 +38,13 @@ spec:
               cpu: "500m"
           readinessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
+              path: /payment-paypal/actuator/health
+              port: 8093
             initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
-            initialDelaySeconds: 60
+              path: /payment-paypal/actuator/health
+              port: 8093
+            initialDelaySeconds: 120
             periodSeconds: 30

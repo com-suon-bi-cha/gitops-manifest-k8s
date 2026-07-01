@@ -8,8 +8,7 @@ spec:
   selector:
     app: inventory
   ports:
-    - name: http
-      port: 8090
-      targetPort: http
+    - port: 8090
+      targetPort: 8090
       protocol: TCP
   type: ClusterIP

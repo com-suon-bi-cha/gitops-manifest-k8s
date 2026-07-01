@@ -14,36 +14,43 @@ spec:
       labels:
         app: customer
     spec:
-      serviceAccountName: customer
+      serviceAccountName: customer      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
         - name: customer
           image: bingsu1103/customer:latest
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8088
-              protocol: TCP
+            - containerPort: 8088
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+              value: "3"
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              value: "health,prometheus"
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres-postgresql:5432/customer"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "postgres"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "password"
           resources:
             requests:
-              memory: "256Mi"
+              memory: "512Mi"
               cpu: "100m"
             limits:
-              memory: "512Mi"
+              memory: "1024Mi"
               cpu: "500m"
           readinessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
+              path: /customer/actuator/health
+              port: 8088
             initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
-            initialDelaySeconds: 60
+              path: /customer/actuator/health
+              port: 8088
+            initialDelaySeconds: 120
             periodSeconds: 30

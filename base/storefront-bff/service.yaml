@@ -8,8 +8,7 @@ spec:
   selector:
     app: storefront-bff
   ports:
-    - name: http
-      port: 8087
-      targetPort: http
+    - port: 8087
+      targetPort: 8087
       protocol: TCP
   type: ClusterIP

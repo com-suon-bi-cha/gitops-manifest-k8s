@@ -8,8 +8,7 @@ spec:
   selector:
     app: recommendation
   ports:
-    - name: http
-      port: 8095
-      targetPort: http
+    - port: 8095
+      targetPort: 8095
       protocol: TCP
   type: ClusterIP

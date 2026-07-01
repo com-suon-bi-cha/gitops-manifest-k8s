@@ -8,8 +8,7 @@ spec:
   selector:
     app: location
   ports:
-    - name: http
-      port: 8086
-      targetPort: http
+    - port: 8086
+      targetPort: 8086
       protocol: TCP
   type: ClusterIP

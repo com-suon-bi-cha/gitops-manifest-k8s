@@ -8,8 +8,7 @@ spec:
   selector:
     app: order
   ports:
-    - name: http
-      port: 8085
-      targetPort: http
+    - port: 8085
+      targetPort: 8085
       protocol: TCP
   type: ClusterIP

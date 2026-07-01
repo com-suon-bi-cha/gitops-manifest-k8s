@@ -8,8 +8,7 @@ spec:
   selector:
     app: sampledata
   ports:
-    - name: http
-      port: 8094
-      targetPort: http
+    - port: 8094
+      targetPort: 8094
       protocol: TCP
   type: ClusterIP

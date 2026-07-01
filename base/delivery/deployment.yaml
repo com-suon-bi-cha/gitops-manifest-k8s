@@ -14,20 +14,21 @@ spec:
       labels:
         app: delivery
     spec:
-      serviceAccountName: delivery
+      serviceAccountName: delivery      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
         - name: delivery
           image: bingsu1103/delivery:latest
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8080
-              protocol: TCP
+            - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+              value: "3"
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              value: "health,prometheus"
           resources:
             requests:
               memory: "256Mi"
@@ -37,13 +38,13 @@ spec:
               cpu: "500m"
           readinessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
+              path: /delivery/actuator/health
+              port: 8080
             initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
-            initialDelaySeconds: 60
+              path: /delivery/actuator/health
+              port: 8080
+            initialDelaySeconds: 120
             periodSeconds: 30

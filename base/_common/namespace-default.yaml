@@ -1,0 +1,6 @@
+# Optional — overlay luôn override namespace nên file này thường không cần.
+# Giữ lại làm tham khảo.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: default

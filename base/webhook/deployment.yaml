@@ -14,36 +14,43 @@ spec:
       labels:
         app: webhook
     spec:
-      serviceAccountName: webhook
+      serviceAccountName: webhook      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
         - name: webhook
           image: bingsu1103/webhook:latest
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8092
-              protocol: TCP
+            - containerPort: 8092
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+              value: "3"
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              value: "health,prometheus"
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres-postgresql:5432/webhook"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "postgres"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "password"
           resources:
             requests:
-              memory: "256Mi"
+              memory: "512Mi"
               cpu: "100m"
             limits:
-              memory: "512Mi"
+              memory: "1024Mi"
               cpu: "500m"
           readinessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
+              path: /webhook/actuator/health
+              port: 8092
             initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
-            initialDelaySeconds: 60
+              path: /webhook/actuator/health
+              port: 8092
+            initialDelaySeconds: 120
             periodSeconds: 30

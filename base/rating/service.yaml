@@ -8,8 +8,7 @@ spec:
   selector:
     app: rating
   ports:
-    - name: http
-      port: 8089
-      targetPort: http
+    - port: 8089
+      targetPort: 8089
       protocol: TCP
   type: ClusterIP

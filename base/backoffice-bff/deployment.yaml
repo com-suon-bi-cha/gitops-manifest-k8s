@@ -14,20 +14,19 @@ spec:
       labels:
         app: backoffice-bff
     spec:
-      serviceAccountName: backoffice-bff
+      serviceAccountName: backoffice-bff      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
         - name: backoffice-bff
           image: bingsu1103/backoffice-bff:latest
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8087
-              protocol: TCP
+            - containerPort: 8087
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: SPRING_DATA_REDIS_HOST
+              value: "redis-master"
           resources:
             requests:
               memory: "256Mi"
@@ -38,12 +37,12 @@ spec:
           readinessProbe:
             httpGet:
               path: /actuator/health
-              port: http
+              port: 8087
             initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /actuator/health
-              port: http
-            initialDelaySeconds: 60
+              port: 8087
+            initialDelaySeconds: 120
             periodSeconds: 30

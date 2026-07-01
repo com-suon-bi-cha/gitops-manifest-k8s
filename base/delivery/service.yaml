@@ -8,8 +8,7 @@ spec:
   selector:
     app: delivery
   ports:
-    - name: http
-      port: 8080
-      targetPort: http
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
   type: ClusterIP

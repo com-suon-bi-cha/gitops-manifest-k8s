@@ -8,8 +8,7 @@ spec:
   selector:
     app: search
   ports:
-    - name: http
-      port: 8092
-      targetPort: http
+    - port: 8092
+      targetPort: 8092
       protocol: TCP
   type: ClusterIP

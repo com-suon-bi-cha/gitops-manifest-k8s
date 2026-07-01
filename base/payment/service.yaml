@@ -8,8 +8,7 @@ spec:
   selector:
     app: payment
   ports:
-    - name: http
-      port: 8081
-      targetPort: http
+    - port: 8081
+      targetPort: 8081
       protocol: TCP
   type: ClusterIP

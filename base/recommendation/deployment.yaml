@@ -14,36 +14,43 @@ spec:
       labels:
         app: recommendation
     spec:
-      serviceAccountName: recommendation
+      serviceAccountName: recommendation      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
         - name: recommendation
           image: bingsu1103/recommendation:latest
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8095
-              protocol: TCP
+            - containerPort: 8095
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+              value: "3"
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              value: "health,prometheus"
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres-postgresql:5432/recommendation"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "postgres"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "password"
           resources:
             requests:
-              memory: "256Mi"
+              memory: "512Mi"
               cpu: "100m"
             limits:
-              memory: "512Mi"
+              memory: "1024Mi"
               cpu: "500m"
           readinessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
+              path: /recommendation/actuator/health
+              port: 8095
             initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
-            initialDelaySeconds: 60
+              path: /recommendation/actuator/health
+              port: 8095
+            initialDelaySeconds: 120
             periodSeconds: 30

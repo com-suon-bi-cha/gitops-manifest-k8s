@@ -8,8 +8,7 @@ spec:
   selector:
     app: media
   ports:
-    - name: http
-      port: 8083
-      targetPort: http
+    - port: 8083
+      targetPort: 8083
       protocol: TCP
   type: ClusterIP

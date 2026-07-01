@@ -14,36 +14,39 @@ spec:
       labels:
         app: search
     spec:
-      serviceAccountName: search
+      serviceAccountName: search      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
         - name: search
           image: bingsu1103/search:latest
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8092
-              protocol: TCP
+            - containerPort: 8092
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: ELASTICSEARCH_URL
+              value: "elasticsearch:9200"
+            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+              value: "3"
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              value: "health,prometheus"
           resources:
             requests:
-              memory: "256Mi"
+              memory: "512Mi"
               cpu: "100m"
             limits:
-              memory: "512Mi"
+              memory: "1024Mi"
               cpu: "500m"
           readinessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
+              path: /search/actuator/health
+              port: 8092
             initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /actuator/health
-              port: http
-            initialDelaySeconds: 60
+              path: /search/actuator/health
+              port: 8092
+            initialDelaySeconds: 120
             periodSeconds: 30

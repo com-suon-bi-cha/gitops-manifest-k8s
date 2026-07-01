@@ -8,8 +8,7 @@ spec:
   selector:
     app: payment-paypal
   ports:
-    - name: http
-      port: 8093
-      targetPort: http
+    - port: 8093
+      targetPort: 8093
       protocol: TCP
   type: ClusterIP
