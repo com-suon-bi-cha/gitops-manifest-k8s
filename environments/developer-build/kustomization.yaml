@@ -11,7 +11,7 @@ patches:
   - path: patches/nodeport-patch.yaml
     target:
       kind: Service
-      name: ".*"
+      labelSelector: "app!=identity"
 images:
   - name: bingsu1103/media
     newTag: latest
@@ -51,4 +51,3 @@ images:
     newTag: latest
   - name: bingsu1103/payment-paypal
     newTag: latest
-
