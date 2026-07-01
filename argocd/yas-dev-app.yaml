@@ -1,17 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: yas-developer-build
+  name: yas-dev
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/com-suon-bi-cha/gitops-manifest-k8s.git
     targetRevision: HEAD
-    path: environments/developer-build
+    path: environments/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: developer-build
+    namespace: dev
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
