@@ -46,11 +46,11 @@ spec:
             httpGet:
               path: /inventory/actuator/health
               port: 8090
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /inventory/actuator/health
               port: 8090
-            initialDelaySeconds: 120
+            initialDelaySeconds: 180
             periodSeconds: 30

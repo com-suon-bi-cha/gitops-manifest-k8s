@@ -46,11 +46,11 @@ spec:
             httpGet:
               path: /location/actuator/health
               port: 8086
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /location/actuator/health
               port: 8086
-            initialDelaySeconds: 120
+            initialDelaySeconds: 180
             periodSeconds: 30
