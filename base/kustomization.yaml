@@ -19,10 +19,6 @@ resources:
   - inventory/deployment.yaml
   - inventory/service.yaml
   - inventory/serviceaccount.yaml
-  # payment
-  - payment/deployment.yaml
-  - payment/service.yaml
-  - payment/serviceaccount.yaml
   # promotion
   - promotion/deployment.yaml
   - promotion/service.yaml
