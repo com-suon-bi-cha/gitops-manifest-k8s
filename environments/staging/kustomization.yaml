@@ -55,7 +55,6 @@ images:
 - name: bingsu1103/storefront-bff
   newTag: v1.0.0
 - name: bingsu1103/tax
-  newName: bingsu1103/tax
   newTag: 90b90e58
 - name: bingsu1103/webhook
   newTag: v1.0.0
