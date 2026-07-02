@@ -48,6 +48,7 @@ resources:
   - backoffice-bff/service.yaml
   - backoffice-bff/serviceaccount.yaml
   # storefront-bff
+  - storefront-bff/configmap.yaml
   - storefront-bff/deployment.yaml
   - storefront-bff/service.yaml
   - storefront-bff/serviceaccount.yaml
@@ -63,3 +64,6 @@ resources:
   - swagger-ui/deployment.yaml
   - swagger-ui/service.yaml
   - swagger-ui/serviceaccount.yaml
+  # Istio ingress
+  - istio/gateway.yaml
+  - istio/virtualservice.yaml

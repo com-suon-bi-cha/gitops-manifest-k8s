@@ -1,0 +1,31 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: yas-ingress-vs
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - yas-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /api
+        - uri:
+            prefix: /authentication
+        - uri:
+            prefix: /oauth2
+        - uri:
+            prefix: /login/oauth2
+        - uri:
+            prefix: /logout
+      route:
+        - destination:
+            host: storefront-bff
+            port:
+              number: 8087
+    - route:
+        - destination:
+            host: storefront-ui
+            port:
+              number: 3000
