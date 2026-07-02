@@ -23,34 +23,14 @@ resources:
   - payment/deployment.yaml
   - payment/service.yaml
   - payment/serviceaccount.yaml
-  # promotion
-  - promotion/deployment.yaml
-  - promotion/service.yaml
-  - promotion/serviceaccount.yaml
-  # rating
-  - rating/deployment.yaml
-  - rating/service.yaml
-  - rating/serviceaccount.yaml
-  # delivery
-  - delivery/deployment.yaml
-  - delivery/service.yaml
-  - delivery/serviceaccount.yaml
   # sampledata
   - sampledata/deployment.yaml
   - sampledata/service.yaml
   - sampledata/serviceaccount.yaml
-  # recommendation
-  - recommendation/deployment.yaml
-  - recommendation/service.yaml
-  - recommendation/serviceaccount.yaml
   # customer
   - customer/deployment.yaml
   - customer/service.yaml
   - customer/serviceaccount.yaml
-  # location
-  - location/deployment.yaml
-  - location/service.yaml
-  - location/serviceaccount.yaml
   # cart
   - cart/deployment.yaml
   - cart/service.yaml
@@ -63,10 +43,6 @@ resources:
   - search/deployment.yaml
   - search/service.yaml
   - search/serviceaccount.yaml
-  # webhook
-  - webhook/deployment.yaml
-  - webhook/service.yaml
-  - webhook/serviceaccount.yaml
   # backoffice-bff
   - backoffice-bff/deployment.yaml
   - backoffice-bff/service.yaml
@@ -83,3 +59,7 @@ resources:
   - backoffice-ui/deployment.yaml
   - backoffice-ui/service.yaml
   - backoffice-ui/serviceaccount.yaml
+  # swagger-ui
+  - swagger-ui/deployment.yaml
+  - swagger-ui/service.yaml
+  - swagger-ui/serviceaccount.yaml

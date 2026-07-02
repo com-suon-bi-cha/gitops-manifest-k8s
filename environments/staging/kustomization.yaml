@@ -24,11 +24,7 @@ images:
   newTag: v1.0.0
 - name: bingsu1103/customer
   newTag: v1.0.0
-- name: bingsu1103/delivery
-  newTag: v1.0.0
 - name: bingsu1103/inventory
-  newTag: v1.0.0
-- name: bingsu1103/location
   newTag: v1.0.0
 - name: bingsu1103/media
   newTag: v1.0.0
@@ -37,12 +33,6 @@ images:
 - name: bingsu1103/payment
   newTag: v1.0.0
 - name: bingsu1103/product
-  newTag: v1.0.0
-- name: bingsu1103/promotion
-  newTag: v1.0.0
-- name: bingsu1103/rating
-  newTag: v1.0.0
-- name: bingsu1103/recommendation
   newTag: v1.0.0
 - name: bingsu1103/sampledata
   newTag: v1.0.0
@@ -53,6 +43,4 @@ images:
 - name: bingsu1103/storefront-bff
   newTag: v1.0.0
 - name: bingsu1103/tax
-  newTag: 90b90e58
-- name: bingsu1103/webhook
   newTag: v1.0.0
