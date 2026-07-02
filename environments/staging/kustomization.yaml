@@ -36,8 +36,6 @@ images:
   newTag: v1.0.0
 - name: bingsu1103/payment
   newTag: v1.0.0
-- name: bingsu1103/payment-paypal
-  newTag: v1.0.0
 - name: bingsu1103/product
   newTag: v1.0.0
 - name: bingsu1103/promotion

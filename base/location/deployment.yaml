@@ -30,7 +30,7 @@ spec:
             - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
               value: "health,prometheus"
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:postgresql://postgres-postgresql:5432/location"
+              value: "jdbc:postgresql://postgres-postgresql:5432/location?sslmode=disable"
             - name: SPRING_DATASOURCE_USERNAME
               value: "postgres"
             - name: SPRING_DATASOURCE_PASSWORD
