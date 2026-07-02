@@ -4,8 +4,7 @@ namespace: staging
 resources:
 - ../../base
 labels:
-- includeSelectors: false
-  includeTemplates: true
+- includeSelectors: true
   pairs:
     environment: staging
 patches:
