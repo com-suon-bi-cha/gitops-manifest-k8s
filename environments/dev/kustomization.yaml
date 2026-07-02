@@ -4,7 +4,8 @@ namespace: dev
 resources:
 - ../../base
 labels:
-- includeSelectors: true
+- includeSelectors: false
+  includeTemplates: true
   pairs:
     environment: dev
 images:

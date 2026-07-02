@@ -5,5 +5,14 @@ metadata:
   labels:
     app: identity
 spec:
-  type: ExternalName
-  externalName: keycloak.dev.svc.cluster.local
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app.kubernetes.io/component: keycloak
+    app.kubernetes.io/instance: keycloak
+    app.kubernetes.io/name: keycloak
+    app.kubernetes.io/part-of: keycloak
