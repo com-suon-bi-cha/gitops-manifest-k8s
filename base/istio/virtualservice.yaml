@@ -9,6 +9,40 @@ spec:
     - yas-gateway
   http:
     - match:
+        - authority:
+            regex: ^backoffice(:18080)?$
+          uri:
+            prefix: /api
+        - authority:
+            regex: ^backoffice(:18080)?$
+          uri:
+            prefix: /authentication
+        - authority:
+            regex: ^backoffice(:18080)?$
+          uri:
+            prefix: /oauth2
+        - authority:
+            regex: ^backoffice(:18080)?$
+          uri:
+            prefix: /login/oauth2
+        - authority:
+            regex: ^backoffice(:18080)?$
+          uri:
+            prefix: /logout
+      route:
+        - destination:
+            host: backoffice-bff
+            port:
+              number: 8087
+    - match:
+        - authority:
+            regex: ^backoffice(:18080)?$
+      route:
+        - destination:
+            host: backoffice-ui
+            port:
+              number: 3000
+    - match:
         - uri:
             prefix: /realms
         - uri:
@@ -26,24 +60,6 @@ spec:
             host: swagger-ui
             port:
               number: 8080
-    - match:
-        - uri:
-            prefix: /backoffice-api
-      rewrite:
-        uri: /
-      route:
-        - destination:
-            host: backoffice-bff
-            port:
-              number: 8087
-    - match:
-        - uri:
-            prefix: /backoffice
-      route:
-        - destination:
-            host: backoffice-ui
-            port:
-              number: 3000
     - match:
         - uri:
             prefix: /api
