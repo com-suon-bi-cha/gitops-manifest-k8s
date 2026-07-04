@@ -8,31 +8,31 @@ labels:
   pairs:
     environment: dev
 images:
-  - name: bingsu1103/media
-    newTag: latest
-  - name: bingsu1103/product
-    newTag: latest
-  - name: bingsu1103/order
-    newTag: latest
-  - name: bingsu1103/inventory
-    newTag: latest
-  - name: bingsu1103/payment
-    newTag: latest
-  - name: bingsu1103/sampledata
-    newTag: latest
-  - name: bingsu1103/customer
-    newTag: latest
-  - name: bingsu1103/cart
-    newTag: latest
-  - name: bingsu1103/tax
-    newTag: latest
-  - name: bingsu1103/search
-    newTag: latest
-  - name: bingsu1103/backoffice-bff
-    newTag: latest
-  - name: bingsu1103/storefront-bff
-    newTag: latest
-  - name: bingsu1103/storefront
-    newTag: latest
-  - name: bingsu1103/backoffice
-    newTag: latest
+- name: bingsu1103/backoffice
+  newTag: latest
+- name: bingsu1103/backoffice-bff
+  newTag: latest
+- name: bingsu1103/cart
+  newTag: 4b1e16d9
+- name: bingsu1103/customer
+  newTag: latest
+- name: bingsu1103/inventory
+  newTag: latest
+- name: bingsu1103/media
+  newTag: latest
+- name: bingsu1103/order
+  newTag: latest
+- name: bingsu1103/payment
+  newTag: latest
+- name: bingsu1103/product
+  newTag: latest
+- name: bingsu1103/sampledata
+  newTag: latest
+- name: bingsu1103/search
+  newTag: latest
+- name: bingsu1103/storefront
+  newTag: latest
+- name: bingsu1103/storefront-bff
+  newTag: latest
+- name: bingsu1103/tax
+  newTag: latest
