@@ -3,6 +3,9 @@ kind: Kustomization
 namespace: dev
 resources:
 - ../../base
+- istio/mtls.yaml
+- istio/retry.yaml
+- istio/authorization.yaml
 labels:
 - includeSelectors: true
   pairs:

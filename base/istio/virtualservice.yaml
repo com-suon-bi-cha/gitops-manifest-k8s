@@ -20,6 +20,32 @@ spec:
               number: 80
     - match:
         - uri:
+            prefix: /swagger-ui
+      route:
+        - destination:
+            host: swagger-ui
+            port:
+              number: 8080
+    - match:
+        - uri:
+            prefix: /backoffice-api
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: backoffice-bff
+            port:
+              number: 8087
+    - match:
+        - uri:
+            prefix: /backoffice
+      route:
+        - destination:
+            host: backoffice-ui
+            port:
+              number: 3000
+    - match:
+        - uri:
             prefix: /api
         - uri:
             prefix: /authentication
