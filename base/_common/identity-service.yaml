@@ -11,6 +11,10 @@ spec:
       port: 80
       targetPort: 8080
       protocol: TCP
+    - name: http-demo
+      port: 18080
+      targetPort: 8080
+      protocol: TCP
   selector:
     app.kubernetes.io/component: keycloak
     app.kubernetes.io/instance: keycloak
