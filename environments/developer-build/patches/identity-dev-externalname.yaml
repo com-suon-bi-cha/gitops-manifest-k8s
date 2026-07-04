@@ -1,0 +1,8 @@
+- op: replace
+  path: /spec/type
+  value: ExternalName
+- op: remove
+  path: /spec/selector
+- op: add
+  path: /spec/externalName
+  value: identity.dev.svc.cluster.local

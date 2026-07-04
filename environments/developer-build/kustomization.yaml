@@ -6,12 +6,17 @@ resources:
 labels:
   - pairs:
       environment: developer-build
-    includeSelectors: true
+    includeSelectors: false
 patches:
   - path: patches/nodeport-patch.yaml
     target:
       kind: Service
       labelSelector: "app!=identity"
+  - path: patches/identity-dev-externalname.yaml
+    target:
+      kind: Service
+      name: identity
+  - path: patches/use-dev-infra.yaml
 images:
   - name: bingsu1103/media
     newTag: latest
