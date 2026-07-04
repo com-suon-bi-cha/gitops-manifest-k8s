@@ -29,6 +29,16 @@ spec:
               value: "optional:file:/config/"
             - name: SPRING_DATA_REDIS_HOST
               value: "redis-master"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_AUTHORIZATION_URI
+              value: "http://127.0.0.1:18080/realms/Yas/protocol/openid-connect/auth"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/token"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_USER_INFO_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/userinfo"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_USER_NAME_ATTRIBUTE
+              value: "preferred_username"
           volumeMounts:
             - name: storefront-bff-config
               mountPath: /config/application-k8s.yaml
