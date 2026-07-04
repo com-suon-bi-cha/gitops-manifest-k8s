@@ -35,6 +35,10 @@ spec:
               value: "postgres"
             - name: SPRING_DATASOURCE_PASSWORD
               value: "password"
+            - name: YAS_SERVICES_MEDIA
+              value: "http://media:8083"
+            - name: YAS_SERVICES_PRODUCT
+              value: "http://product:8080/product"
           resources:
             requests:
               memory: "256Mi"

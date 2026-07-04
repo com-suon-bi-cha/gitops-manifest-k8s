@@ -35,6 +35,14 @@ spec:
               value: "postgres"
             - name: SPRING_DATASOURCE_PASSWORD
               value: "password"
+            - name: YAS_SERVICES_CART
+              value: "http://cart:8084/cart"
+            - name: YAS_SERVICES_CUSTOMER
+              value: "http://customer:8088/customer"
+            - name: YAS_SERVICES_PRODUCT
+              value: "http://product:8080/product"
+            - name: YAS_SERVICES_TAX
+              value: "http://tax:8091/tax"
           resources:
             requests:
               memory: "256Mi"
