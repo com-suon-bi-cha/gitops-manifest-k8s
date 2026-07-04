@@ -84,6 +84,10 @@ data:
                   filters:
                     - TokenRelay=
                     - StripPrefix=1
+                - id: storefront_ui
+                  uri: http://storefront-ui:3000
+                  predicates:
+                    - Path=/**
     yas:
       services:
         customer: http://customer:8088/customer
