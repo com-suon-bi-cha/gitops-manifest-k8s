@@ -16,7 +16,54 @@ patches:
     target:
       kind: Service
       name: identity
-  - path: patches/use-dev-infra.yaml
+  - path: patches/use-dev-infra-media.yaml
+    target:
+      kind: Deployment
+      name: media
+  - path: patches/use-dev-infra-product.yaml
+    target:
+      kind: Deployment
+      name: product
+  - path: patches/use-dev-infra-order.yaml
+    target:
+      kind: Deployment
+      name: order
+  - path: patches/use-dev-infra-inventory.yaml
+    target:
+      kind: Deployment
+      name: inventory
+  - path: patches/use-dev-infra-payment.yaml
+    target:
+      kind: Deployment
+      name: payment
+  - path: patches/use-dev-infra-sampledata.yaml
+    target:
+      kind: Deployment
+      name: sampledata
+  - path: patches/use-dev-infra-customer.yaml
+    target:
+      kind: Deployment
+      name: customer
+  - path: patches/use-dev-infra-cart.yaml
+    target:
+      kind: Deployment
+      name: cart
+  - path: patches/use-dev-infra-tax.yaml
+    target:
+      kind: Deployment
+      name: tax
+  - path: patches/use-dev-infra-search.yaml
+    target:
+      kind: Deployment
+      name: search
+  - path: patches/use-dev-infra-backoffice-bff.yaml
+    target:
+      kind: Deployment
+      name: backoffice-bff
+  - path: patches/use-dev-infra-storefront-bff.yaml
+    target:
+      kind: Deployment
+      name: storefront-bff
 images:
   - name: bingsu1103/media
     newTag: latest

@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront-bff
+spec:
+  template:
+    spec:
+      containers:
+        - name: storefront-bff
+          env:
+            - name: SPRING_DATA_REDIS_HOST
+              value: "redis-master.dev.svc.cluster.local"
