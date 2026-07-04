@@ -65,6 +65,10 @@ patches:
     target:
       kind: Deployment
       name: storefront-bff
+  - path: patches/use-dev-infra-storefront-bff-config.yaml
+    target:
+      kind: ConfigMap
+      name: storefront-bff-config
 images:
   - name: bingsu1103/media
     newTag: latest
