@@ -11,7 +11,7 @@ spec:
             - name: SPRING_DATA_REDIS_HOST
               value: "redis-master.dev.svc.cluster.local"
             - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI
-              value: "http://identity.dev.svc.cluster.local/realms/Yas"
+              value: "http://35.247.165.74:31096/realms/Yas"
             - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_AUTHORIZATION_URI
               value: "http://35.247.165.74:31096/realms/Yas/protocol/openid-connect/auth"
             - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN_URI

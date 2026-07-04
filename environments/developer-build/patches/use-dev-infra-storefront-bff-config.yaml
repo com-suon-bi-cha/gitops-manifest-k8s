@@ -86,10 +86,18 @@ data:
                   uri: http://identity.dev.svc.cluster.local
                   predicates:
                     - Path=/realms/**
+                  filters:
+                    - SetRequestHeader=X-Forwarded-Host, 35.247.165.74:31096
+                    - SetRequestHeader=X-Forwarded-Proto, http
+                    - SetRequestHeader=X-Forwarded-Port, 31096
                 - id: keycloak_resources
                   uri: http://identity.dev.svc.cluster.local
                   predicates:
                     - Path=/resources/**
+                  filters:
+                    - SetRequestHeader=X-Forwarded-Host, 35.247.165.74:31096
+                    - SetRequestHeader=X-Forwarded-Proto, http
+                    - SetRequestHeader=X-Forwarded-Port, 31096
                 - id: storefront_ui
                   uri: http://storefront-ui:3000
                   predicates:
