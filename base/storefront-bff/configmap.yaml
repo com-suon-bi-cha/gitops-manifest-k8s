@@ -27,7 +27,7 @@ data:
                     - Path=/api/media/**
                   filters:
                     - TokenRelay=
-                    - StripPrefix=1
+                    - StripPrefix=2
                 - id: api_cart
                   uri: http://cart:8084
                   predicates:

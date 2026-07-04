@@ -35,6 +35,8 @@ spec:
               value: "postgres"
             - name: SPRING_DATASOURCE_PASSWORD
               value: "password"
+            - name: YAS_PUBLIC_URL
+              value: "http://storefront.yas.local.com/api/media"
           resources:
             requests:
               memory: "256Mi"
