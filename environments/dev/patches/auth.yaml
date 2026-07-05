@@ -46,6 +46,8 @@ spec:
               value: "http://identity.dev.yas.local.com:31255/realms/Yas"
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
               value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+            - name: YAS_PUBLIC_URL
+              value: "http://storefront.dev.yas.local.com:31255/api/media"
 ---
 apiVersion: apps/v1
 kind: Deployment

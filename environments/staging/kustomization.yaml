@@ -13,6 +13,10 @@ patches:
 - path: patches/rolling-update-one-node.yaml
   target:
     kind: Deployment
+- path: patches/storefront-ui.yaml
+  target:
+    kind: Deployment
+    name: storefront-ui
 - patch: |-
     - op: replace
       path: /spec/replicas

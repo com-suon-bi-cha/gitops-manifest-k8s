@@ -80,6 +80,10 @@ patches:
     target:
       kind: ConfigMap
       name: storefront-bff-config
+  - path: patches/storefront-ui.yaml
+    target:
+      kind: Deployment
+      name: storefront-ui
 images:
   - name: bingsu1103/media
     newTag: latest

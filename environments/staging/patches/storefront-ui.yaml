@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront-ui
+spec:
+  template:
+    spec:
+      containers:
+        - name: storefront-ui
+          env:
+            - name: API_BASE_PATH
+              value: "http://storefront.staging.yas.local.com:31255/api"
