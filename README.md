@@ -41,6 +41,28 @@ kubectl kustomize environments/staging
 kubectl kustomize environments/developer-build
 ```
 
+## Access URLs
+
+The cluster uses local hostnames because there is no public DNS. Add these
+records to your workstation `/etc/hosts`, pointing to the worker node external
+IP:
+
+```text
+<WORKER_EXTERNAL_IP> storefront.dev.yas.local.com
+<WORKER_EXTERNAL_IP> storefront.staging.yas.local.com
+<WORKER_EXTERNAL_IP> storefront.developer-build.yas.local.com
+<WORKER_EXTERNAL_IP> identity.dev.yas.local.com
+<WORKER_EXTERNAL_IP> identity.staging.yas.local.com
+```
+
+Default URLs:
+
+| Environment | Storefront URL | Identity URL |
+| --- | --- | --- |
+| dev | `http://storefront.dev.yas.local.com:31255` | `http://identity.dev.yas.local.com:31255` |
+| staging | `http://storefront.staging.yas.local.com:31255` | `http://identity.staging.yas.local.com:31255` |
+| developer-build | `http://storefront.developer-build.yas.local.com:31096` | uses dev identity |
+
 Expected checks:
 
 ```sh

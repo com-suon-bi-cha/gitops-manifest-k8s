@@ -17,6 +17,17 @@ patches:
     target:
       kind: Service
       name: identity
+  - path: patches/static-storefront-bff-nodeport.yaml
+    target:
+      kind: Service
+      name: storefront-bff
+  - path: patches/virtualservice-hosts.yaml
+    target:
+      kind: VirtualService
+      name: yas-ingress-vs
+  - path: patches/rolling-update-one-node.yaml
+    target:
+      kind: Deployment
   - path: patches/use-dev-infra-media.yaml
     target:
       kind: Deployment

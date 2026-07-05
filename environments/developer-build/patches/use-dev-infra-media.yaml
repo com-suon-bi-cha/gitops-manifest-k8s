@@ -10,3 +10,7 @@ spec:
           env:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:postgresql://postgres-postgresql.dev.svc.cluster.local:5432/media?sslmode=disable"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity.dev.svc.cluster.local/realms/Yas/protocol/openid-connect/certs"

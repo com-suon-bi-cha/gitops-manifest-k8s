@@ -8,6 +8,11 @@ labels:
   pairs:
     environment: staging
 patches:
+- path: patches/virtualservice-hosts.yaml
+- path: patches/auth.yaml
+- path: patches/rolling-update-one-node.yaml
+  target:
+    kind: Deployment
 - patch: |-
     - op: replace
       path: /spec/replicas

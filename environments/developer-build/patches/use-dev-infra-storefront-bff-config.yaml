@@ -87,7 +87,7 @@ data:
                   predicates:
                     - Path=/realms/**
                   filters:
-                    - SetRequestHeader=X-Forwarded-Host, 35.247.165.74:31096
+                    - SetRequestHeader=X-Forwarded-Host, storefront.developer-build.yas.local.com:31096
                     - SetRequestHeader=X-Forwarded-Proto, http
                     - SetRequestHeader=X-Forwarded-Port, 31096
                 - id: keycloak_resources
@@ -95,7 +95,7 @@ data:
                   predicates:
                     - Path=/resources/**
                   filters:
-                    - SetRequestHeader=X-Forwarded-Host, 35.247.165.74:31096
+                    - SetRequestHeader=X-Forwarded-Host, storefront.developer-build.yas.local.com:31096
                     - SetRequestHeader=X-Forwarded-Proto, http
                     - SetRequestHeader=X-Forwarded-Port, 31096
                 - id: storefront_ui

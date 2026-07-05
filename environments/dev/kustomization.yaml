@@ -10,6 +10,12 @@ labels:
 - includeSelectors: true
   pairs:
     environment: dev
+patches:
+- path: patches/virtualservice-hosts.yaml
+- path: patches/auth.yaml
+- path: patches/rolling-update-one-node.yaml
+  target:
+    kind: Deployment
 images:
 - name: bingsu1103/backoffice
   newTag: latest

@@ -1,0 +1,8 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: yas-ingress-vs
+spec:
+  hosts:
+    - storefront.dev.yas.local.com
+    - identity.dev.yas.local.com

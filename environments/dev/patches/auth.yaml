@@ -1,0 +1,183 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront-bff
+spec:
+  template:
+    spec:
+      containers:
+        - name: storefront-bff
+          env:
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_AUTHORIZATION_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas/protocol/openid-connect/auth"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/token"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_USER_INFO_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/userinfo"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backoffice-bff
+spec:
+  template:
+    spec:
+      containers:
+        - name: backoffice-bff
+          env:
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product
+spec:
+  template:
+    spec:
+      containers:
+        - name: product
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: media
+spec:
+  template:
+    spec:
+      containers:
+        - name: media
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart
+spec:
+  template:
+    spec:
+      containers:
+        - name: cart
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+spec:
+  template:
+    spec:
+      containers:
+        - name: customer
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+spec:
+  template:
+    spec:
+      containers:
+        - name: order
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+spec:
+  template:
+    spec:
+      containers:
+        - name: inventory
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+spec:
+  template:
+    spec:
+      containers:
+        - name: payment
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tax
+spec:
+  template:
+    spec:
+      containers:
+        - name: tax
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search
+spec:
+  template:
+    spec:
+      containers:
+        - name: search
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampledata
+spec:
+  template:
+    spec:
+      containers:
+        - name: sampledata
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.dev.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
