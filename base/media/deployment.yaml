@@ -17,6 +17,16 @@ spec:
       serviceAccountName: media      # BẮT BUỘC — TV4 dùng cho AuthorizationPolicy
       imagePullSecrets:
         - name: dockerhub-secret
+      initContainers:
+        - name: prepare-media-images
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - mkdir -p /images/sample && chmod -R 777 /images
+          volumeMounts:
+            - name: media-images
+              mountPath: /images
       containers:
         - name: media
           image: bingsu1103/media:latest
@@ -58,3 +68,10 @@ spec:
               port: 8083
             initialDelaySeconds: 180
             periodSeconds: 30
+          volumeMounts:
+            - name: media-images
+              mountPath: /images
+      volumes:
+        - name: media-images
+          persistentVolumeClaim:
+            claimName: media-images

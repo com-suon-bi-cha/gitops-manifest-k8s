@@ -4,6 +4,7 @@ resources:
   # identity → keycloak alias (required by all services using http://identity/realms/Yas)
   - _common/identity-service.yaml
   # media
+  - media/pvc.yaml
   - media/deployment.yaml
   - media/service.yaml
   - media/serviceaccount.yaml
