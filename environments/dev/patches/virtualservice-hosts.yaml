@@ -14,37 +14,11 @@ spec:
     - match:
         - authority:
             regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
-          uri:
-            prefix: /api
-        - authority:
-            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
-          uri:
-            prefix: /authentication
-        - authority:
-            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
-          uri:
-            prefix: /oauth2
-        - authority:
-            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
-          uri:
-            prefix: /login/oauth2
-        - authority:
-            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
-          uri:
-            prefix: /logout
       route:
         - destination:
             host: backoffice-bff
             port:
               number: 8087
-    - match:
-        - authority:
-            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
-      route:
-        - destination:
-            host: backoffice-ui
-            port:
-              number: 3000
     - match:
         - uri:
             prefix: /realms

@@ -7,6 +7,7 @@ spec:
     spec:
       containers:
         - name: swagger-ui
+          image: swaggerapi/swagger-ui:v5.17.14
           env:
             - name: BASE_URL
               value: /swagger-ui

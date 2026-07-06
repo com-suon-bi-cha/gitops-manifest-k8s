@@ -45,6 +45,7 @@ resources:
   - search/service.yaml
   - search/serviceaccount.yaml
   # backoffice-bff
+  - backoffice-bff/configmap.yaml
   - backoffice-bff/deployment.yaml
   - backoffice-bff/service.yaml
   - backoffice-bff/serviceaccount.yaml

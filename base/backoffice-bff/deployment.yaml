@@ -25,8 +25,14 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
+            - name: SPRING_CONFIG_ADDITIONAL_LOCATION
+              value: "optional:file:/config/"
             - name: SPRING_DATA_REDIS_HOST
               value: "redis-master"
+          volumeMounts:
+            - name: backoffice-bff-config
+              mountPath: /config/application-k8s.yaml
+              subPath: application-k8s.yaml
           resources:
             requests:
               memory: "256Mi"
@@ -46,3 +52,7 @@ spec:
               port: 8087
             initialDelaySeconds: 180
             periodSeconds: 30
+      volumes:
+        - name: backoffice-bff-config
+          configMap:
+            name: backoffice-bff-config

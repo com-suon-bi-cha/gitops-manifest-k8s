@@ -1,0 +1,91 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backoffice-bff-config
+  labels:
+    app: backoffice-bff
+data:
+  application-k8s.yaml: |
+    spring:
+      cloud:
+        gateway:
+          server:
+            webflux:
+              default-filters:
+                - SaveSession
+              routes:
+                - id: api_product
+                  uri: http://product:8080
+                  predicates:
+                    - Path=/api/product/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: api_media
+                  uri: http://media:8083
+                  predicates:
+                    - Path=/api/media/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=2
+                - id: api_customer
+                  uri: http://customer:8088
+                  predicates:
+                    - Path=/api/customer/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: api_cart
+                  uri: http://cart:8084
+                  predicates:
+                    - Path=/api/cart/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: api_order
+                  uri: http://order:8085
+                  predicates:
+                    - Path=/api/order/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: api_payment
+                  uri: http://payment:8081
+                  predicates:
+                    - Path=/api/payment/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: api_inventory
+                  uri: http://inventory:8090
+                  predicates:
+                    - Path=/api/inventory/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: api_tax
+                  uri: http://tax:8091
+                  predicates:
+                    - Path=/api/tax/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: api_search
+                  uri: http://search:8092
+                  predicates:
+                    - Path=/api/search/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
+                - id: keycloak_realms
+                  uri: http://identity
+                  predicates:
+                    - Path=/realms/**
+                - id: keycloak_resources
+                  uri: http://identity
+                  predicates:
+                    - Path=/resources/**
+                - id: backoffice_ui
+                  uri: http://backoffice-ui:3000
+                  predicates:
+                    - Path=/**
