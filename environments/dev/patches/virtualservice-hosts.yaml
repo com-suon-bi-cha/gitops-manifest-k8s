@@ -6,3 +6,153 @@ spec:
   hosts:
     - storefront.dev.yas.local.com
     - identity.dev.yas.local.com
+    - backoffice.dev.yas.local.com
+    - swagger.dev.yas.local.com
+  gateways:
+    - yas-gateway
+  http:
+    - match:
+        - authority:
+            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
+          uri:
+            prefix: /api
+        - authority:
+            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
+          uri:
+            prefix: /authentication
+        - authority:
+            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
+          uri:
+            prefix: /oauth2
+        - authority:
+            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
+          uri:
+            prefix: /login/oauth2
+        - authority:
+            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
+          uri:
+            prefix: /logout
+      route:
+        - destination:
+            host: backoffice-bff
+            port:
+              number: 8087
+    - match:
+        - authority:
+            regex: ^backoffice\.dev\.yas\.local\.com(:31255)?$
+      route:
+        - destination:
+            host: backoffice-ui
+            port:
+              number: 3000
+    - match:
+        - uri:
+            prefix: /realms
+        - uri:
+            prefix: /resources
+      route:
+        - destination:
+            host: identity
+            port:
+              number: 80
+    - match:
+        - uri:
+            prefix: /swagger-ui
+      route:
+        - destination:
+            host: swagger-ui
+            port:
+              number: 8080
+    - match:
+        - uri:
+            prefix: /product/v3/api-docs
+      route:
+        - destination:
+            host: product
+            port:
+              number: 8080
+    - match:
+        - uri:
+            prefix: /media/v3/api-docs
+      route:
+        - destination:
+            host: media
+            port:
+              number: 8083
+    - match:
+        - uri:
+            prefix: /customer/v3/api-docs
+      route:
+        - destination:
+            host: customer
+            port:
+              number: 8088
+    - match:
+        - uri:
+            prefix: /cart/v3/api-docs
+      route:
+        - destination:
+            host: cart
+            port:
+              number: 8084
+    - match:
+        - uri:
+            prefix: /order/v3/api-docs
+      route:
+        - destination:
+            host: order
+            port:
+              number: 8085
+    - match:
+        - uri:
+            prefix: /payment/v3/api-docs
+      route:
+        - destination:
+            host: payment
+            port:
+              number: 8081
+    - match:
+        - uri:
+            prefix: /inventory/v3/api-docs
+      route:
+        - destination:
+            host: inventory
+            port:
+              number: 8090
+    - match:
+        - uri:
+            prefix: /tax/v3/api-docs
+      route:
+        - destination:
+            host: tax
+            port:
+              number: 8091
+    - match:
+        - uri:
+            prefix: /search/v3/api-docs
+      route:
+        - destination:
+            host: search
+            port:
+              number: 8092
+    - match:
+        - uri:
+            prefix: /api
+        - uri:
+            prefix: /authentication
+        - uri:
+            prefix: /oauth2
+        - uri:
+            prefix: /login/oauth2
+        - uri:
+            prefix: /logout
+      route:
+        - destination:
+            host: storefront-bff
+            port:
+              number: 8087
+    - route:
+        - destination:
+            host: storefront-ui
+            port:
+              number: 3000

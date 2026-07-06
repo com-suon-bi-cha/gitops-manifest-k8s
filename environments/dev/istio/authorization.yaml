@@ -97,6 +97,7 @@ spec:
               - cluster.local/ns/dev/sa/order
               - cluster.local/ns/dev/sa/inventory
               - cluster.local/ns/dev/sa/search
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -115,6 +116,7 @@ spec:
               - cluster.local/ns/dev/sa/backoffice-bff
               - cluster.local/ns/dev/sa/product
               - cluster.local/ns/dev/sa/payment
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -131,6 +133,7 @@ spec:
             principals:
               - cluster.local/ns/dev/sa/storefront-bff
               - cluster.local/ns/dev/sa/order
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -148,6 +151,7 @@ spec:
               - cluster.local/ns/dev/sa/storefront-bff
               - cluster.local/ns/dev/sa/backoffice-bff
               - cluster.local/ns/dev/sa/payment
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -165,6 +169,7 @@ spec:
               - cluster.local/ns/dev/sa/storefront-bff
               - cluster.local/ns/dev/sa/backoffice-bff
               - cluster.local/ns/dev/sa/order
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -183,6 +188,7 @@ spec:
               - cluster.local/ns/dev/sa/backoffice-bff
               - cluster.local/ns/dev/sa/cart
               - cluster.local/ns/dev/sa/order
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -200,6 +206,7 @@ spec:
               - cluster.local/ns/dev/sa/storefront-bff
               - cluster.local/ns/dev/sa/backoffice-bff
               - cluster.local/ns/dev/sa/order
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -216,6 +223,7 @@ spec:
             principals:
               - cluster.local/ns/dev/sa/backoffice-bff
               - cluster.local/ns/dev/sa/order
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
@@ -231,6 +239,7 @@ spec:
         - source:
             principals:
               - cluster.local/ns/dev/sa/storefront-bff
+              - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
 ---
 apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
