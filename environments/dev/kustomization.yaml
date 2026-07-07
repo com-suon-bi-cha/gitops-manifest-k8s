@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: dev
 resources:
 - ../../base
+- ../../base/kafka-connect
+- patches/kafka-connect-connector.yaml
 - istio/mtls.yaml
 - istio/retry.yaml
 - istio/authorization.yaml
