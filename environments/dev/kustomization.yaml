@@ -48,7 +48,7 @@ images:
 - name: bingsu1103/sampledata
   newTag: latest
 - name: bingsu1103/search
-  newTag: latest
+  newTag: 1d8c6d6f
 - name: bingsu1103/storefront
   newTag: latest
 - name: bingsu1103/storefront-bff
