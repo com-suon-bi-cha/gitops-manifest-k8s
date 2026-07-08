@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: staging
 resources:
 - ../../base
+- ../../base/kafka-connect
+- patches/kafka-connect-connector.yaml
 labels:
 - includeSelectors: true
   pairs:
