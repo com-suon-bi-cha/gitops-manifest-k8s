@@ -4,9 +4,12 @@ metadata:
   name: setup-debezium-connector
   annotations:
     argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation,HookSucceeded
 spec:
   template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
     spec:
       containers:
       - name: setup
@@ -14,12 +17,15 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
         - |
+          set -eu
           echo "Waiting for Kafka Connect to be ready..."
-          while ! curl -s http://kafka-connect:8083/ > /dev/null; do sleep 5; done
-          echo "Kafka Connect is ready. Registering PostgreSQL connector..."
-          curl -s -X POST -H "Content-Type: application/json" --data '{
+          while ! curl -fsS http://kafka-connect:8083/ > /dev/null; do sleep 5; done
+
+          cat >/tmp/product-connector-create.json <<'EOF'
+          {
             "name": "product-connector",
             "config": {
+              "name": "product-connector",
               "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
               "database.hostname": "postgres-postgresql",
               "database.port": "5432",
@@ -32,14 +38,48 @@ spec:
               "plugin.name": "pgoutput",
               "slot.name": "debezium",
               "publication.autocreate.mode": "filtered",
-              "transforms": "unwrap",
-              "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
-              "transforms.unwrap.drop.tombstones": "false",
               "value.converter": "org.apache.kafka.connect.json.JsonConverter",
               "value.converter.schemas.enable": "false",
               "key.converter": "org.apache.kafka.connect.json.JsonConverter",
               "key.converter.schemas.enable": "false",
               "snapshot.mode": "initial"
             }
-          }' http://kafka-connect:8083/connectors
+          }
+          EOF
+
+          cat >/tmp/product-connector-config.json <<'EOF'
+          {
+            "name": "product-connector",
+            "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+            "database.hostname": "postgres-postgresql",
+            "database.port": "5432",
+            "database.user": "postgres",
+            "database.password": "password",
+            "database.dbname": "product",
+            "database.server.name": "dbproduct",
+            "topic.prefix": "dbproduct",
+            "table.include.list": "public.product",
+            "plugin.name": "pgoutput",
+            "slot.name": "debezium",
+            "publication.autocreate.mode": "filtered",
+            "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+            "value.converter.schemas.enable": "false",
+            "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+            "key.converter.schemas.enable": "false",
+            "snapshot.mode": "initial"
+          }
+          EOF
+
+          echo "Ensuring PostgreSQL connector is registered..."
+          if curl -fsS http://kafka-connect:8083/connectors/product-connector > /dev/null; then
+            curl -fsS -X PUT \
+              -H "Content-Type: application/json" \
+              --data @/tmp/product-connector-config.json \
+              http://kafka-connect:8083/connectors/product-connector/config
+          else
+            curl -fsS -X POST \
+              -H "Content-Type: application/json" \
+              --data @/tmp/product-connector-create.json \
+              http://kafka-connect:8083/connectors
+          fi
       restartPolicy: OnFailure
