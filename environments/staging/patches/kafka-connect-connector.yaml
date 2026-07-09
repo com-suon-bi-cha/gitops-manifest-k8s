@@ -15,6 +15,7 @@ spec:
         args:
         - |
           set -eu
+          trap 'curl -fsS -X POST http://127.0.0.1:15020/quitquitquit >/dev/null 2>&1 || true' EXIT
           echo "Waiting for Kafka Connect to be ready..."
           while ! curl -fsS http://kafka-connect:8083/ > /dev/null; do sleep 5; done
 
