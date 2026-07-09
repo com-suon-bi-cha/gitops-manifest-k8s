@@ -40,7 +40,7 @@ spec:
             - name: YAS_SERVICES_ORDER
               value: "http://order:8085/order"
             - name: YAS_SERVICES_MEDIA
-              value: "http://media:8083"
+              value: "http://media:8083/media"
           resources:
             requests:
               memory: "256Mi"
