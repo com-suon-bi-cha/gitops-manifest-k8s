@@ -6,6 +6,9 @@ resources:
 - ../../base/location
 - ../../base/kafka-connect
 - patches/kafka-connect-connector.yaml
+- istio/mtls.yaml
+- istio/retry.yaml
+- istio/authorization.yaml
 labels:
 - includeSelectors: true
   pairs:

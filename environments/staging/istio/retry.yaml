@@ -1,0 +1,101 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: product-retry
+spec:
+  hosts:
+    - product.staging.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: product.staging.svc.cluster.local
+      retries:
+        attempts: 3
+        perTryTimeout: 2s
+        retryOn: 5xx,reset,connect-failure,retriable-4xx
+      timeout: 10s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: cart-retry
+spec:
+  hosts:
+    - cart.staging.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: cart.staging.svc.cluster.local
+      retries:
+        attempts: 3
+        perTryTimeout: 2s
+        retryOn: 5xx,reset,connect-failure,retriable-4xx
+      timeout: 10s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: order-retry
+spec:
+  hosts:
+    - order.staging.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: order.staging.svc.cluster.local
+      retries:
+        attempts: 3
+        perTryTimeout: 2s
+        retryOn: 5xx,reset,connect-failure,retriable-4xx
+      timeout: 10s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: tax-retry
+spec:
+  hosts:
+    - tax.staging.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: tax.staging.svc.cluster.local
+      retries:
+        attempts: 3
+        perTryTimeout: 2s
+        retryOn: 5xx,reset,connect-failure,retriable-4xx
+      timeout: 10s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: payment-retry
+spec:
+  hosts:
+    - payment.staging.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: payment.staging.svc.cluster.local
+      retries:
+        attempts: 3
+        perTryTimeout: 2s
+        retryOn: 5xx,reset,connect-failure,retriable-4xx
+      timeout: 10s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: inventory-retry
+spec:
+  hosts:
+    - inventory.staging.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: inventory.staging.svc.cluster.local
+      retries:
+        attempts: 3
+        perTryTimeout: 2s
+        retryOn: 5xx,reset,connect-failure,retriable-4xx
+      timeout: 10s
