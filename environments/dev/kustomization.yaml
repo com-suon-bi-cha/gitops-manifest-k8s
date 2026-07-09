@@ -53,7 +53,7 @@ images:
 - name: bingsu1103/search
   newTag: 1d8c6d6f
 - name: bingsu1103/storefront
-  newTag: 40085f12
+  newTag: 459de268
 - name: bingsu1103/storefront-bff
   newTag: latest
 - name: bingsu1103/tax
