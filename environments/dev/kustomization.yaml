@@ -35,7 +35,7 @@ images:
 - name: bingsu1103/cart
   newTag: 4b1e16d9
 - name: bingsu1103/customer
-  newTag: 7eade896
+  newTag: 3709baf5
 - name: bingsu1103/inventory
   newTag: latest
 - name: bingsu1103/location
