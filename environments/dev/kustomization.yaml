@@ -43,7 +43,7 @@ images:
 - name: bingsu1103/media
   newTag: latest
 - name: bingsu1103/order
-  newTag: 2861a75b
+  newTag: c9e0952b
 - name: bingsu1103/payment
   newTag: 2a823006
 - name: bingsu1103/product
