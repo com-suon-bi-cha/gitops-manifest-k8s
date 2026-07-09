@@ -35,12 +35,12 @@ images:
 - name: bingsu1103/cart
   newTag: 4b1e16d9
 - name: bingsu1103/customer
-  newTag: latest
+  newTag: 58fccf90
 - name: bingsu1103/inventory
   newTag: latest
-- name: bingsu1103/media
-  newTag: latest
 - name: bingsu1103/location
+  newTag: latest
+- name: bingsu1103/media
   newTag: latest
 - name: bingsu1103/order
   newTag: 2861a75b
