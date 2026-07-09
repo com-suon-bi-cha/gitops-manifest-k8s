@@ -32,10 +32,6 @@ resources:
   - customer/deployment.yaml
   - customer/service.yaml
   - customer/serviceaccount.yaml
-  # location
-  - location/deployment.yaml
-  - location/service.yaml
-  - location/serviceaccount.yaml
   # cart
   - cart/deployment.yaml
   - cart/service.yaml

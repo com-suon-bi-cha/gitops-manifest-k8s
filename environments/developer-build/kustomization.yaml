@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: developer-build
 resources:
   - ../../base
+  - ../../base/location
   - dev-infra-destinationrules.yaml
 labels:
   - pairs:

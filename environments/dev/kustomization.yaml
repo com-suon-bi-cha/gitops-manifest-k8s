@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: dev
 resources:
 - ../../base
+- ../../base/location
 - ../../base/kafka-connect
 - patches/kafka-connect-connector.yaml
 - istio/mtls.yaml
@@ -38,6 +39,8 @@ images:
 - name: bingsu1103/inventory
   newTag: latest
 - name: bingsu1103/media
+  newTag: latest
+- name: bingsu1103/location
   newTag: latest
 - name: bingsu1103/order
   newTag: 2861a75b
