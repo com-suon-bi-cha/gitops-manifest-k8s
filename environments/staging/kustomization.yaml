@@ -11,6 +11,9 @@ labels:
     environment: staging
 patches:
 - path: patches/virtualservice-hosts.yaml
+  target:
+    kind: VirtualService
+    name: yas-ingress-vs
 - path: patches/auth.yaml
 - path: patches/rolling-update-one-node.yaml
   target:

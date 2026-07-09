@@ -1,7 +1,16 @@
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: yas-ingress-vs
-spec:
-  hosts:
+- op: replace
+  path: /spec/hosts
+  value:
     - storefront.developer-build.yas.local.com
+    - backoffice.developer-build.yas.local.com
+- op: add
+  path: /spec/http/0
+  value:
+    match:
+      - authority:
+          regex: ^backoffice\.developer-build\.yas\.local\.com(:31255)?$
+    route:
+      - destination:
+          host: backoffice-bff
+          port:
+            number: 8087

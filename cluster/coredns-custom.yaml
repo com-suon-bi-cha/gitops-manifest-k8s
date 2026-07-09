@@ -8,7 +8,7 @@ data:
     yas.local.com:53 {
         errors
         hosts {
-          10.148.0.6 identity.dev.yas.local.com identity.staging.yas.local.com storefront.dev.yas.local.com storefront.staging.yas.local.com storefront.developer-build.yas.local.com
+          10.148.0.6 identity.dev.yas.local.com identity.staging.yas.local.com storefront.dev.yas.local.com storefront.staging.yas.local.com storefront.developer-build.yas.local.com backoffice.dev.yas.local.com backoffice.staging.yas.local.com backoffice.developer-build.yas.local.com
           fallthrough
         }
         forward . /etc/resolv.conf
