@@ -1,0 +1,6 @@
+auth:
+  enabled: false
+master:
+  resources:
+    requests:
+      memory: 256Mi

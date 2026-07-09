@@ -178,6 +178,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: location
+spec:
+  template:
+    spec:
+      containers:
+        - name: location
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: "http://identity.staging.yas.local.com:31255/realms/Yas"
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+              value: "http://identity/realms/Yas/protocol/openid-connect/certs"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: sampledata
 spec:
   template:

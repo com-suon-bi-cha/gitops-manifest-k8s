@@ -1,0 +1,18 @@
+broker:
+  replicaCount: 0
+controller:
+  persistence:
+    size: 8Gi
+  replicaCount: 3
+  resources:
+    limits:
+      memory: 768Mi
+    requests:
+      memory: 512Mi
+listeners:
+  client:
+    protocol: PLAINTEXT
+image:
+  registry: docker.io
+  repository: bitnamilegacy/kafka
+  tag: 4.0.0-debian-12-r10

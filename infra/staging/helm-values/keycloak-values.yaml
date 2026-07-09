@@ -1,0 +1,25 @@
+auth:
+  adminPassword: admin
+  adminUser: admin
+externalDatabase:
+  database: keycloak
+  host: postgres-postgresql.staging.svc.cluster.local
+  password: password
+  port: 5432
+  user: postgres
+extraEnvVars:
+  - name: KC_DB_URL_PROPERTIES
+    value: ?sslmode=disable
+image:
+  registry: docker.io
+  repository: bitnamilegacy/keycloak
+  tag: 26.3.3-debian-12-r0
+podLabels:
+  environment: staging
+postgresql:
+  enabled: false
+resources:
+  limits:
+    memory: 768Mi
+  requests:
+    memory: 384Mi

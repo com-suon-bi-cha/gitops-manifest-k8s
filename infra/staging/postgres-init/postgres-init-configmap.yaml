@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init
+data:
+  init.sql: |
+    SELECT 'CREATE DATABASE media' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'media')\gexec
+    SELECT 'CREATE DATABASE product' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'product')\gexec
+    SELECT 'CREATE DATABASE "order"' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'order')\gexec
+    SELECT 'CREATE DATABASE order_db' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'order_db')\gexec
+    SELECT 'CREATE DATABASE inventory' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'inventory')\gexec
+    SELECT 'CREATE DATABASE payment' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'payment')\gexec
+    SELECT 'CREATE DATABASE promotion' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'promotion')\gexec
+    SELECT 'CREATE DATABASE rating' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'rating')\gexec
+    SELECT 'CREATE DATABASE recommendation' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'recommendation')\gexec
+    SELECT 'CREATE DATABASE customer' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'customer')\gexec
+    SELECT 'CREATE DATABASE location' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'location')\gexec
+    SELECT 'CREATE DATABASE cart' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'cart')\gexec
+    SELECT 'CREATE DATABASE tax' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'tax')\gexec
+    SELECT 'CREATE DATABASE webhook' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'webhook')\gexec
+    SELECT 'CREATE DATABASE delivery' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'delivery')\gexec
+    SELECT 'CREATE DATABASE keycloak' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'keycloak')\gexec

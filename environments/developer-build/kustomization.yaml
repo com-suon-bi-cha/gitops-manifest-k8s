@@ -64,6 +64,10 @@ patches:
     target:
       kind: Deployment
       name: tax
+  - path: patches/use-dev-infra-location.yaml
+    target:
+      kind: Deployment
+      name: location
   - path: patches/use-dev-infra-search.yaml
     target:
       kind: Deployment

@@ -1,0 +1,39 @@
+coordinating:
+  heapSize: 256m
+  replicaCount: 1
+  resources:
+    limits:
+      memory: 1Gi
+    requests:
+      memory: 512Mi
+data:
+  heapSize: 512m
+  persistence:
+    size: 4Gi
+  replicaCount: 1
+  resources:
+    limits:
+      memory: 1280Mi
+    requests:
+      memory: 768Mi
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/elasticsearch
+  tag: 9.1.2-debian-12-r0
+ingest:
+  enabled: false
+master:
+  persistence:
+    size: 4Gi
+  replicaCount: 1
+  resources:
+    limits:
+      memory: 768Mi
+    requests:
+      memory: 384Mi
+sysctlImage:
+  repository: bitnamilegacy/os-shell
+  tag: 12-debian-12-r50

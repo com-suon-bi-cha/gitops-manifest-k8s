@@ -1,0 +1,15 @@
+architecture: standalone
+auth:
+  database: yas
+  postgresPassword: password
+primary:
+  extendedConfiguration: |
+    max_connections=500
+    wal_level=logical
+  initdb:
+    scriptsConfigMap: postgres-init
+  resources:
+    limits:
+      memory: 768Mi
+    requests:
+      memory: 384Mi

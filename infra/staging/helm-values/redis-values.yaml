@@ -1,0 +1,16 @@
+architecture: standalone
+auth:
+  enabled: false
+commonConfiguration: |-
+  loadmodule /opt/bitnami/redis/lib/redis/modules/redisearch.so
+  loadmodule /opt/bitnami/redis/lib/redis/modules/rejson.so
+  appendonly yes
+  save ""
+master:
+  resources:
+    limits:
+      memory: 384Mi
+    requests:
+      memory: 128Mi
+replica:
+  replicaCount: 0

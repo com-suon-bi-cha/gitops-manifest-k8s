@@ -61,6 +61,13 @@ data:
                   filters:
                     - TokenRelay=
                     - StripPrefix=1
+                - id: api_location
+                  uri: http://location:8086
+                  predicates:
+                    - Path=/api/location/**
+                  filters:
+                    - TokenRelay=
+                    - StripPrefix=1
                 - id: api_tax
                   uri: http://tax:8091
                   predicates:
