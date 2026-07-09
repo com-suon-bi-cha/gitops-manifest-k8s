@@ -1,0 +1,30 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: observability-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - grafana.yas.local.com
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: grafana-ingress
+spec:
+  hosts:
+    - grafana.yas.local.com
+  gateways:
+    - observability-gateway
+  http:
+    - route:
+        - destination:
+            host: prometheus-grafana.observability.svc.cluster.local
+            port:
+              number: 80
