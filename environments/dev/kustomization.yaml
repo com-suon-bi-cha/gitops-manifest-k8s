@@ -35,7 +35,7 @@ images:
 - name: bingsu1103/cart
   newTag: 4b1e16d9
 - name: bingsu1103/customer
-  newTag: 58fccf90
+  newTag: 40085f12
 - name: bingsu1103/inventory
   newTag: latest
 - name: bingsu1103/location
@@ -53,7 +53,7 @@ images:
 - name: bingsu1103/search
   newTag: 1d8c6d6f
 - name: bingsu1103/storefront
-  newTag: 6e1cc960
+  newTag: 40085f12
 - name: bingsu1103/storefront-bff
   newTag: latest
 - name: bingsu1103/tax
