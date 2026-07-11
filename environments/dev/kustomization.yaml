@@ -34,7 +34,7 @@ images:
 - name: bingsu1103/backoffice-bff
   newTag: 1b6708b6
 - name: bingsu1103/cart
-  newTag: 55fee7f2
+  newTag: 345a3bc5
 - name: bingsu1103/customer
   newTag: 1b6708b6
 - name: bingsu1103/inventory
